@@ -15,3 +15,6 @@ bin/
 *.ipr
 *.iws
 .idea/
+
+# VSCode
+.vscode/
