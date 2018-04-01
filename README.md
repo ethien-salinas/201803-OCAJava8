@@ -6,3 +6,11 @@ Execute the project:
 ```sh
 gradle run
 ```
+Execute unit tests
+```sh
+gradle test
+```
+
+## References
+
+* [Gradle command line interface:](https://docs.gradle.org/current/userguide/command_line_interface.html)
