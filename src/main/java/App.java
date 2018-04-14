@@ -1,4 +1,5 @@
 public class App {
+
     public String getGreeting() {
         return "Hello world with Gradle.";
     }
