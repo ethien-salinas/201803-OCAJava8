@@ -8,7 +8,7 @@ gradle run
 ```
 Execute unit tests
 ```sh
-gradle test
+gradle clean junitPlatformTest
 ```
 
 ## References
