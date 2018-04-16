@@ -14,4 +14,12 @@ public class AppTest {
         assertTrue(app.getGreeting().length() == 24);
     }
 
+    @Test
+    void testNumbersOperations() {
+        int precedence = 25 - 5 * 4 / 2 - 10 + 4;
+        int precedenceOverriden = (((25 - 5) * 4) / (2 - 10)) + 4;
+        assertEquals(9, precedence);
+        assertEquals(-6, precedenceOverriden);
+    }
+
 }
