@@ -5,16 +5,17 @@ gradle-app.setting
 build/
 bin/
 
-# Eclipse project files
+# Eclipse
 .classpath
 .project
 .settings/
 
-# Intellij project files
+# Intellij
 *.iml
 *.ipr
 *.iws
 .idea/
+out/
 
 # VSCode
 .vscode/
