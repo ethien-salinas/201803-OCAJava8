@@ -1,6 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static com.google.common.truth.Truth.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,9 +10,9 @@ public class AppTest {
     @DisplayName("Greeting tests")
     void testAppHasAGreeting() {
         App app = new App();
-        assertNotNull("app should have a greeting", app.getGreeting());
-        assertEquals("Hello world with Gradle.", app.getGreeting());
-        assertTrue(app.getGreeting().length() == 24);
+        assertThat(app.getGreeting()).isNotNull();
+        assertThat(app.getGreeting()).isEqualTo("Hello world with Gradle.");
+        assertThat(app.getGreeting()).hasLength(24);
     }
 
     @Test
