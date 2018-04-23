@@ -1,4 +1,3 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static com.google.common.truth.Truth.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
@@ -20,8 +19,8 @@ public class AppTest {
     void testNumbersOperations() {
         int precedence = 25 - 5 * 4 / 2 - 10 + 4;
         int precedenceOverriden = (((25 - 5) * 4) / (2 - 10)) + 4;
-        assertEquals(9, precedence, "the natural order of precedence");
-        assertEquals(-6, precedenceOverriden, "precedence order overridden");
+        assertThat(precedence).isEqualTo(9);
+        assertThat(precedenceOverriden).isEqualTo(-6);
     }
 
 }
