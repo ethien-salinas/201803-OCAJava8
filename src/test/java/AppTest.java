@@ -23,4 +23,10 @@ public class AppTest {
         assertThat(precedenceOverriden).isEqualTo(-6);
     }
 
+    @Test
+    @DisplayName("Array operations tests")
+    void testArraysOperations() {
+        String[] names = {"Mary", "Bob", "Carlos"};
+        assertThat(names[0]).isEqualTo("Mary");
+    }
 }
