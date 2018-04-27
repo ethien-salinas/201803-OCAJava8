@@ -33,5 +33,6 @@ public class AppTest {
             String name = names[3];
             name.startsWith("C");
         });
+        assertThat(names[2]).isEqualTo("Carlos");
     }
 }
