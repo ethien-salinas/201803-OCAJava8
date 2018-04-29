@@ -50,5 +50,14 @@ public class AppTest {
         assertThat(phoneNum.substring(8)).isEqualTo("2345");
     }
 
+    @Test
+    @DisplayName("StringBuilder operation test")
+    void testStringBuilderMethods(){
+        StringBuilder certificatic = new StringBuilder("Certificatic");
+        certificatic.append(" rules!");
 
+        assertThat(certificatic).isNotEqualTo("Certificatic rules!");
+        assertThat(certificatic).isNotEqualTo(new StringBuilder("Certificatic rules!"));
+        assertThat(certificatic.toString()).isEqualTo(new StringBuilder("Certificatic rules!").toString());
+    }
 }
