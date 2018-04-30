@@ -37,7 +37,7 @@ public class AppTest {
     }
 
     @Test
-    @DisplayName("String operation test")
+    @DisplayName("String methods test")
     void testStringMethods(){
         String phoneNum = "404-543-2345";
         int index = phoneNum.indexOf("-");
@@ -51,7 +51,7 @@ public class AppTest {
     }
 
     @Test
-    @DisplayName("StringBuilder operation test")
+    @DisplayName("StringBuilder methods test")
     void testStringBuilderMethods(){
         StringBuilder certificatic = new StringBuilder("Certificatic");
         certificatic.append(" rules!");
