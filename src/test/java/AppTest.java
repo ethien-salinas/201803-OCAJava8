@@ -16,15 +16,6 @@ public class AppTest {
     }
 
     @Test
-    @DisplayName("Math operations tests")
-    void testNumbersOperations() {
-        int precedence = 25 - 5 * 4 / 2 - 10 + 4;
-        int precedenceOverriden = (((25 - 5) * 4) / (2 - 10)) + 4;
-        assertThat(precedence).isEqualTo(9);
-        assertThat(precedenceOverriden).isEqualTo(-6);
-    }
-
-    @Test
     @DisplayName("Array operations tests")
     void testArraysOperations() {
         String[] names = { "Mary", "Bob", "Carlos" };
