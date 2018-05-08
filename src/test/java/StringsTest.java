@@ -24,9 +24,11 @@ public class StringsTest {
     void testStringBuilderMethods(){
         StringBuilder certificatic = new StringBuilder("Certificatic");
         certificatic.append(" rules!");
-
+        // not equal because a StringBuilder is not a String although the content is the same
         assertThat(certificatic).isNotEqualTo("Certificatic rules!");
+        // not equal because two new StringBuilder have different memory locations
         assertThat(certificatic).isNotEqualTo(new StringBuilder("Certificatic rules!"));
+        // equals because we are comparing the content of two StringBuilder
         assertThat(certificatic.toString()).isEqualTo(new StringBuilder("Certificatic rules!").toString());
     }
 
