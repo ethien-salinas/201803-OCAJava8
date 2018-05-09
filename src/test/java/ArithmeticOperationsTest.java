@@ -29,5 +29,11 @@ public class ArithmeticOperationsTest {
         // without cast the result, the operation do not even compile
         short cShort = (short) (aShort + bShort);
         assertThat(cShort).isEqualTo(100);
+
+        // potential issue with type casting
+        long bigLongNumber = 123_987_654_321L;
+        int choppedNumber = (int) bigLongNumber;
+        assertThat(choppedNumber).isNotEqualTo(123_987_654_321L);
+        assertThat(choppedNumber).isEqualTo(-566_397_263);
     }
 }
