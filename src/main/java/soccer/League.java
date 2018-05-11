@@ -9,15 +9,9 @@ public class League {
 
         Game currGame = theGames[0];
 
-        Goal goal1 = new Goal();
-        goal1.thePlayer = currGame.homeTeam.playerArray[2];
-        goal1.theTeam = currGame.homeTeam;
-        goal1.theTime = 55;
-        Goal[] theGoals = { goal1 };
-        currGame.goals = theGoals;
+        currGame.playGame();
 
-        System.out.println("Goal scored after " + currGame.goals[0].theTime + " mins by "
-                + currGame.goals[0].thePlayer.playerName + " of " + currGame.goals[0].theTeam.teamName);
+        System.out.println(currGame.getDescription());
 
     }
 
@@ -29,9 +23,8 @@ public class League {
         player2.playerName = "Graham Greene";
         Player player3 = new Player();
         player3.playerName = "Geoffrey Chaucer";
-        Player[] thePlayers = { player1, player2, player3 };
+        Player[] thePlayers = {player1, player2, player3};
 
-        // Create team1
         Team team1 = new Team();
         team1.teamName = "The Greens";
         team1.playerArray = thePlayers;
@@ -47,7 +40,7 @@ public class League {
         team2.playerArray[2] = new Player();
         team2.playerArray[2].playerName = "Rafael Sabatini";
 
-        Team[] theTeams = { team1, team2 };
+        Team[] theTeams = {team1, team2};
         return theTeams;
     }
 
@@ -55,7 +48,7 @@ public class League {
         Game theGame = new Game();
         theGame.homeTeam = theTeams[0];
         theGame.awayTeam = theTeams[1];
-        Game[] theGames = { theGame };
+        Game[] theGames = {theGame};
         return theGames;
     }
 
