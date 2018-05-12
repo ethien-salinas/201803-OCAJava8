@@ -4,8 +4,10 @@ public class League {
 
     public static void main(String[] args) {
 
-        Team[] theTeams = createTeams();
-        Game[] theGames = createGames(theTeams);
+        League theLeague = new League();
+
+        Team[] theTeams = theLeague.createTeams();
+        Game[] theGames = theLeague.createGames(theTeams);
 
         Game currGame = theGames[0];
 
@@ -15,7 +17,7 @@ public class League {
 
     }
 
-    public static Team[] createTeams() {
+    public Team[] createTeams() {
 
         Player player1 = new Player();
         player1.playerName = "George Eliot";
@@ -23,7 +25,7 @@ public class League {
         player2.playerName = "Graham Greene";
         Player player3 = new Player();
         player3.playerName = "Geoffrey Chaucer";
-        Player[] thePlayers = {player1, player2, player3};
+        Player[] thePlayers = { player1, player2, player3 };
 
         Team team1 = new Team();
         team1.teamName = "The Greens";
@@ -40,15 +42,15 @@ public class League {
         team2.playerArray[2] = new Player();
         team2.playerArray[2].playerName = "Rafael Sabatini";
 
-        Team[] theTeams = {team1, team2};
+        Team[] theTeams = { team1, team2 };
         return theTeams;
     }
 
-    public static Game[] createGames(Team[] theTeams) {
+    public Game[] createGames(Team[] theTeams) {
         Game theGame = new Game();
         theGame.homeTeam = theTeams[0];
         theGame.awayTeam = theTeams[1];
-        Game[] theGames = {theGame};
+        Game[] theGames = { theGame };
         return theGames;
     }
 
