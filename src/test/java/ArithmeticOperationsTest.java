@@ -36,4 +36,21 @@ public class ArithmeticOperationsTest {
         assertThat(choppedNumber).isNotEqualTo(123_987_654_321L);
         assertThat(choppedNumber).isEqualTo(-566_397_263);
     }
+
+    @Test
+    @DisplayName("Ternary operator")
+    void testTernaryOperator() {
+        // old school way
+        int x1 = 4, y1 = 9;
+        if ((y1 / x1) < 3) {
+            x1 += y1;
+        } else
+            x1 *= y1;
+        assertThat(x1).isEqualTo(13);
+
+        // with ternary operator
+        int x2 = 4, y2 = 9;
+        x2 = ((y2 / x2) < 3) ? x2 + y2 : x2 + y2;
+        assertThat(x2).isEqualTo(13);
+    }
 }
