@@ -18,7 +18,6 @@ public class League {
     }
 
     public Team[] createTeams() {
-
         Player player1 = new Player();
         player1.playerName = "George Eliot";
         Player player2 = new Player();
