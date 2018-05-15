@@ -52,11 +52,11 @@ public class ArithmeticOperationsTest {
 
         // with ternary operator
         int x2 = 4, y2 = 9;
-        x2 = ((y2 / x2) < 3) ? x2 + y2 : x2 + y2;
+        x2 = ((y2 / x2) < 3) ? x2 + y2 : x2 * y2;
         assertThat(x2).isEqualTo(13);
 
         // even more cool with lambdas
-        ToIntBiFunction<Integer, Integer> intFromElvisOperator = (x, y) -> ((y / x) < 3) ? x + y : x + y;
+        ToIntBiFunction<Integer, Integer> intFromElvisOperator = (x, y) -> ((y / x) < 3) ? x + y : x * y;
         assertThat(intFromElvisOperator.applyAsInt(4, 9)).isEqualTo(13);
     }
 }
