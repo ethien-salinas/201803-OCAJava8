@@ -8,6 +8,11 @@ public class Game {
     public Team awayTeam;
     public Goal[] goals;
 
+    public Game(Team homeTeam, Team awayTeam) {
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
+    }
+
     public void playGame(int maxGoals) {
         int numberOfGoals = (int) (Math.random() * maxGoals + 1);
         Goal[] theGoals = new Goal[numberOfGoals];
