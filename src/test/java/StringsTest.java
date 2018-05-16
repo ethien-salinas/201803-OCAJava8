@@ -1,5 +1,7 @@
 import static com.google.common.truth.Truth.assertThat;
 
+import java.util.function.Function;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -30,6 +32,13 @@ public class StringsTest {
         assertThat(certificatic).isNotEqualTo(new StringBuilder("Certificatic rules!"));
         // equals because we are comparing the content of two StringBuilder
         assertThat(certificatic.toString()).isEqualTo(new StringBuilder("Certificatic rules!").toString());
+    }
+
+    @Test
+    @DisplayName("Use of lambdas with Strings")
+    void testUseOfLambdasWithStrings(){
+        Function<String, String> helloWoFunction = s -> "Hi " + s + "!";
+        assertThat(helloWoFunction.apply("Ethien")).isEqualTo("Hi Ethien!");
     }
 
 }
