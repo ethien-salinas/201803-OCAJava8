@@ -2,7 +2,7 @@ package soccer;
 
 public class Player {
 
-    public String playerName;
+    private String playerName;
 
     public Player(String playerName) {
         this.playerName = playerName;
