@@ -2,8 +2,8 @@ package soccer;
 
 public class Team {
 
-    public String teamName;
-    public Player[] playerArray;
+    private String teamName;
+    private Player[] playerArray;
 
     public Team(String teamName) {
         this.teamName = teamName;
