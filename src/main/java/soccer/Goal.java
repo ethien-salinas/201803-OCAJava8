@@ -2,9 +2,9 @@ package soccer;
 
 public class Goal {
 
-    public Team theTeam;
-    public Player thePlayer;
-    public double theTime;
+    private Team theTeam;
+    private Player thePlayer;
+    private double theTime;
 
     public Team getTheTeam() {
         return theTeam;
