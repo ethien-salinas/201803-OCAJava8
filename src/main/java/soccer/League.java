@@ -14,13 +14,15 @@ public class League {
             System.out.println(currGame.getDescription());
         }
 
+        theLeague.showBestTeam(theTeams);
+
     }
 
     public Team[] createTeams() {
         Player player1 = new Player("George Eliot");
         Player player2 = new Player("Graham Greene");
         Player player3 = new Player("Geoffrey Chaucer");
-        Player[] thePlayers = { player1, player2, player3 };
+        Player[] thePlayers = {player1, player2, player3};
 
         Team team1 = new Team("The Greens", thePlayers);
 
@@ -32,7 +34,7 @@ public class League {
         team2.getPlayerArray()[1] = new Player("Robbie Burns");
         team2.getPlayerArray()[2] = new Player("Rafael Sabatini");
 
-        Team[] theTeams = { team1, team2 };
+        Team[] theTeams = {team1, team2};
         return theTeams;
     }
 
@@ -41,8 +43,21 @@ public class League {
         Game theGame2 = new Game(theTeams[1], theTeams[0]);
         Game theGame3 = new Game(theTeams[0], theTeams[1]);
         Game theGame4 = new Game(theTeams[1], theTeams[0]);
-        Game[] theGames = { theGame, theGame2, theGame3, theGame4 };
+        Game[] theGames = {theGame, theGame2, theGame3, theGame4};
         return theGames;
+    }
+
+    public void showBestTeam(Team[] theTeams) {
+        Team currBestTeam = theTeams[0];
+        System.out.println("\nTeam Points");
+
+        for (Team currTeam : theTeams) {
+            System.out.println(currTeam.getTeamName() + " : " + currTeam.getPointsTotal());
+            currBestTeam = currTeam.getPointsTotal() > currBestTeam.getPointsTotal() ? currTeam : currBestTeam;
+        }
+
+        System.out.println("Winner of the League is " + currBestTeam.getTeamName());
+
     }
 
 }
