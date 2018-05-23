@@ -22,13 +22,13 @@ public class GameUtils {
             currGoal = new Goal();
             currGoal.setTheTeam(Math.random() > 0.5 ? currGame.getHomeTeam() : currGame.getAwayTeam());
             currGoal.setThePlayer(currGoal.getTheTeam()
-                    .getPlayerArray()[(int) (Math.random() * currGoal.getTheTeam().getPlayerArray().length)]);
+                .getPlayerArray()[(int) (Math.random() * currGoal.getTheTeam().getPlayerArray().length)]);
             currGoal.setTheTime((int) (Math.random() * 90));
             currGame.getGoals()[i] = currGoal;
             i++;
         }
-        Arrays.sort(currGame.getGoals(),
-                (g1, g2) -> Double.valueOf(g1.getTheTime()).compareTo(Double.valueOf(g2.getTheTime())));
+        Arrays.sort(currGame.getGoals(), (g1, g2) ->
+            Double.valueOf(g1.getTheTime()).compareTo(Double.valueOf(g2.getTheTime())));
 
     }
 }
