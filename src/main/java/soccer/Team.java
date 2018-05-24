@@ -19,6 +19,10 @@ public class Team {
     public Team() {
     }
 
+    public void incGoalsTotal(int goals) {
+        this.setGoalsTotal(this.getGoalsTotal() + goals);
+    }
+
     public void incPointsTotal(int points) {
         this.pointsTotal += points;
     }
