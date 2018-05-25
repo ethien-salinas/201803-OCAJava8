@@ -2,15 +2,20 @@ package soccer;
 
 import utility.GameUtils;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Game {
 
     private Team homeTeam;
     private Team awayTeam;
     private Goal[] goals;
+    private LocalDateTime theDateTime;
 
-    public Game(Team homeTeam, Team awayTeam) {
+    public Game(Team homeTeam, Team awayTeam, LocalDateTime theDateTime) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
+        this.theDateTime = theDateTime;
     }
 
     public void playGame(int maxGoals) {
@@ -30,7 +35,9 @@ public class Game {
         int awayTeamGoals = 0;
         StringBuilder returnString = new StringBuilder();
 
-        returnString.append(this.getHomeTeam().getTeamName() + " vs. " + this.getAwayTeam().getTeamName() + "\n");
+        returnString.append(this.getHomeTeam().getTeamName() + " vs. " +
+            this.getAwayTeam().getTeamName() + "\n" +
+            "Date: " + this.getTheDateTime().format(DateTimeFormatter.ISO_LOCAL_DATE) + "\n");
 
         for (Goal currGoal : this.getGoals()) {
 
@@ -42,8 +49,11 @@ public class Game {
                 awayTeam.incGoalsTotal(1);
             }
 
-            returnString.append("Goal scored after " + currGoal.getTheTime() + " mins by "
-                + currGoal.getThePlayer().getPlayerName() + " of " + currGoal.getTheTeam().getTeamName() + "\n");
+            returnString.append("Goal scored after "
+                + currGoal.getTheTime() + " mins by "
+                + currGoal.getThePlayer().getPlayerName() + " of "
+                + currGoal.getTheTeam().getTeamName() +
+                "\n");
         }
 
         if (homeTeamGoals == awayTeamGoals) {
@@ -84,5 +94,13 @@ public class Game {
 
     public void setGoals(Goal[] goals) {
         this.goals = goals;
+    }
+
+    public LocalDateTime getTheDateTime() {
+        return theDateTime;
+    }
+
+    public void setTheDateTime(LocalDateTime theDateTime) {
+        this.theDateTime = theDateTime;
     }
 }

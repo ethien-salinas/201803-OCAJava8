@@ -2,6 +2,8 @@ package soccer;
 
 import utility.PlayerDatabase;
 
+import java.time.LocalDateTime;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -14,6 +16,7 @@ public class League {
         Team[] theTeams = theLeague.createTeams("The Robins,The Crows,The Swallows", 5);
         Game[] theGames = theLeague.createGames(theTeams);
 
+        System.out.println(theLeague.getLeagueAnnouncement(theGames));
         for (Game currGame : theGames) {
             currGame.playGame();
             System.out.println(currGame.getDescription());
@@ -33,26 +36,25 @@ public class League {
             theTeams[i] = new Team(teamNameTokens.nextToken(), playerDB.getTeam(teamSize));
         }
 
+
         return theTeams;
     }
 
     public Game[] createGames(Team[] theTeams) {
-        /*
-         * Game theGame = new Game(theTeams[0], theTeams[1]); Game theGame2 = new
-         * Game(theTeams[1], theTeams[0]); Game theGame3 = new Game(theTeams[0],
-         * theTeams[1]); Game theGame4 = new Game(theTeams[1], theTeams[0]); Game[]
-         * theGames = {theGame, theGame2, theGame3, theGame4};
-         */
-        ArrayList<Game> theGames = new ArrayList();
+        int daysBetweenGames = 0;
+
+        ArrayList theGames = new ArrayList();
 
         for (Team homeTeam : theTeams) {
             for (Team awayTeam : theTeams) {
                 if (homeTeam != awayTeam) {
-                    theGames.add(new Game(homeTeam, awayTeam));
+                    daysBetweenGames += 7;
+                    theGames.add(new Game(homeTeam, awayTeam, LocalDateTime.now().plusDays(daysBetweenGames)));
                 }
 
             }
         }
+
 
         return (Game[]) theGames.toArray(new Game[1]);
     }
@@ -62,8 +64,8 @@ public class League {
         System.out.println("\nTeam Points");
 
         for (Team currTeam : theTeams) {
-            System.out.println(
-                currTeam.getTeamName() + " : " + currTeam.getPointsTotal() + " : " + currTeam.getGoalsTotal());
+            System.out.println(currTeam.getTeamName() + " : " + currTeam.getPointsTotal() + " : "
+                + currTeam.getGoalsTotal());
             currBestTeam = currTeam.getPointsTotal() > currBestTeam.getPointsTotal() ? currTeam : currBestTeam;
             if (currTeam.getPointsTotal() > currBestTeam.getPointsTotal()) {
                 currBestTeam = currTeam;
@@ -76,6 +78,16 @@ public class League {
 
         System.out.println("Winner of the League is " + currBestTeam.getTeamName());
 
+    }
+
+    public String getLeagueAnnouncement(Game[] theGames) {
+
+        Period thePeriod = Period.between(theGames[0].getTheDateTime().toLocalDate(),
+            theGames[theGames.length - 1].getTheDateTime().toLocalDate());
+
+        return "The league is scheduled to run for " +
+            thePeriod.getMonths() + " month(s), and " +
+            thePeriod.getDays() + " day(s)\n";
     }
 
 }
