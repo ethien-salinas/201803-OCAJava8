@@ -25,12 +25,12 @@ public class Game {
     }
 
     public String getDescription() {
+
         int homeTeamGoals = 0;
         int awayTeamGoals = 0;
         StringBuilder returnString = new StringBuilder();
 
-        returnString.append(homeTeam.getTeamName() + " vs. " +
-            awayTeam.getTeamName() + "\n");
+        returnString.append(this.getHomeTeam().getTeamName() + " vs. " + this.getAwayTeam().getTeamName() + "\n");
 
         for (Goal currGoal : this.getGoals()) {
 
@@ -42,22 +42,20 @@ public class Game {
                 awayTeam.incGoalsTotal(1);
             }
 
-            returnString.append("Goal scored after " + currGoal.getTheTime());
-            returnString.append(" mins by " + currGoal.getThePlayer().getPlayerName());
-            returnString.append(" of " + currGoal.getTheTeam().getTeamName());
-            returnString.append("\n");
+            returnString.append("Goal scored after " + currGoal.getTheTime() + " mins by "
+                + currGoal.getThePlayer().getPlayerName() + " of " + currGoal.getTheTeam().getTeamName() + "\n");
         }
 
         if (homeTeamGoals == awayTeamGoals) {
             returnString.append("It's a draw!");
-            homeTeam.incPointsTotal(1);
-            awayTeam.incPointsTotal(1);
+            this.homeTeam.incPointsTotal(1);
+            this.awayTeam.incPointsTotal(1);
         } else if (homeTeamGoals > awayTeamGoals) {
             returnString.append(homeTeam.getTeamName() + " win");
-            homeTeam.incPointsTotal(2);
+            this.homeTeam.incPointsTotal(1);
         } else {
             returnString.append(awayTeam.getTeamName() + " win");
-            awayTeam.incPointsTotal(2);
+            this.awayTeam.incPointsTotal(1);
         }
         returnString.append(" (" + homeTeamGoals + " - " + awayTeamGoals + ") \n");
 
