@@ -1,6 +1,6 @@
 package soccer;
 
-public class Team {
+public class Team implements Comparable {
 
     private String teamName;
     private Player[] playerArray;
@@ -25,6 +25,18 @@ public class Team {
 
     public void incPointsTotal(int points) {
         this.pointsTotal += points;
+    }
+
+    public int compareTo(Object theTeam) {
+        int returnValue = -1;
+        if (this.getPointsTotal() < ((Team) theTeam).getPointsTotal()) {
+            returnValue = 1;
+        } else if (this.getPointsTotal() == ((Team) theTeam).getPointsTotal()) {
+            if (this.getGoalsTotal() < ((Team) theTeam).getGoalsTotal()) {
+                returnValue = 1;
+            }
+        }
+        return returnValue;
     }
 
     public String getTeamName() {
