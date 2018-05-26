@@ -1,6 +1,6 @@
 package soccer;
 
-public class GameEvent {
+public abstract class GameEvent {
 
     private Team theTeam;
     private Player thePlayer;
