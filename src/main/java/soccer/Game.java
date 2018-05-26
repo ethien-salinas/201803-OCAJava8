@@ -1,9 +1,8 @@
 package soccer;
 
-import utility.GameUtils;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class Game {
 
@@ -18,15 +17,24 @@ public class Game {
         this.theDateTime = theDateTime;
     }
 
-    public void playGame(int maxGoals) {
-        int numberOfGoals = (int) (Math.random() * maxGoals + 1);
-        Goal[] theGoals = new Goal[numberOfGoals];
-        this.goals = theGoals;
-        GameUtils.addGameGoals(this);
-    }
-
     public void playGame() {
-        playGame(6);
+        ArrayList<Goal> eventList = new ArrayList();
+        Goal currEvent;
+        for (int i = 1; i <= 90; i++) {
+
+            if (Math.random() > 0.95) {
+                currEvent = new Goal();
+                currEvent.setTheTeam(Math.random() > 0.5 ? homeTeam : awayTeam);
+                currEvent.setThePlayer(currEvent.getTheTeam().
+                    getPlayerArray()[(int) (Math.random() * currEvent.getTheTeam().getPlayerArray().length)]);
+                currEvent.setTheTime(i);
+                eventList.add(currEvent);
+                //System.out.println(i);
+            }
+            this.goals = new Goal[eventList.size()];
+            eventList.toArray(goals);
+
+        }
     }
 
     public String getDescription() {
