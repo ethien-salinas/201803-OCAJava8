@@ -19,6 +19,7 @@ public class League {
         System.out.println(theLeague.getLeagueAnnouncement(theGames));
         for (Game currGame : theGames) {
             currGame.playGame();
+            //break;
             System.out.println(currGame.getDescription());
         }
 
