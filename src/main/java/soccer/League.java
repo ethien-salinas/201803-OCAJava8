@@ -1,6 +1,7 @@
 package soccer;
 
 import utility.PlayerDatabase;
+import utility.PlayerDatabaseException;
 
 import java.time.LocalDateTime;
 import java.time.Period;
@@ -15,22 +16,26 @@ public class League {
 
         League theLeague = new League();
 
-        Team[] theTeams = theLeague.createTeams("The Robins,The Crows,The Swallows", 5);
-        Game[] theGames = theLeague.createGames(theTeams);
+        try {
+            Team[] theTeams = theLeague.createTeams("The Robins,The Crows,The Swallows,The Owls", 11);
+            Game[] theGames = theLeague.createGames(theTeams);
 
-        System.out.println(theLeague.getLeagueAnnouncement(theGames));
-        for (Game currGame : theGames) {
-            currGame.playGame();
-            //break;
-            System.out.println(currGame.getDescription());
+            System.out.println(theLeague.getLeagueAnnouncement(theGames));
+            for (Game currGame : theGames) {
+                currGame.playGame();
+                //break;
+                System.out.println(currGame.getDescription());
+            }
+
+            theLeague.showBestTeam(theTeams);
+            theLeague.showBestPlayers(theTeams);
+        } catch (PlayerDatabaseException e) {
+            e.printStackTrace(System.err);
         }
-
-        theLeague.showBestTeam(theTeams);
-        theLeague.showBestPlayers(theTeams);
 
     }
 
-    public Team[] createTeams(String teamNames, int teamSize) {
+    public Team[] createTeams(String teamNames, int teamSize) throws PlayerDatabaseException {
 
         PlayerDatabase playerDB = new PlayerDatabase();
 
