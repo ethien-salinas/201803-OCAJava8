@@ -8,7 +8,7 @@ public class Game {
 
     private Team homeTeam;
     private Team awayTeam;
-    private GameEvent[] goals;
+    private GameEvent[] events;
     private LocalDateTime theDateTime;
 
     public Game(Team homeTeam, Team awayTeam, LocalDateTime theDateTime) {
@@ -32,8 +32,8 @@ public class Game {
                 eventList.add(currEvent);
                 //System.out.println(i);
             }
-            this.goals = new GameEvent[eventList.size()];
-            eventList.toArray(goals);
+            this.events = new GameEvent[eventList.size()];
+            eventList.toArray(events);
 
         }
     }
@@ -101,11 +101,11 @@ public class Game {
     }
 
     public GameEvent[] getEvents() {
-        return goals;
+        return events;
     }
 
-    public void setEvents(GameEvent[] goals) {
-        this.goals = goals;
+    public void setEvents(GameEvent[] events) {
+        this.events = events;
     }
 
     public LocalDateTime getTheDateTime() {
